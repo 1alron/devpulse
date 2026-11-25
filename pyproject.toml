@@ -2,11 +2,16 @@
 name = "devpulse"
 version = "0.1.0"
 requires-python = ">=3.12.3"
-dependencies = []
+dependencies = [
+    "fastapi>=0.165.0",
+    "uvicorn[standard]>=0.54.0",
+]
 
 [dependency-groups]
 dev = [
+    "httpx2>=2.16.2",
     "mypy>=2.4.1",
+    "pytest>=9.2.0",
     "ruff>=0.17.6",
 ]
 
@@ -27,3 +32,12 @@ python_version = "3.12"
 mypy_path = "src"
 strict = true
 warn_unused_configs = true
+
+[tool.uv.workspace]
+members = [
+    ".",
+]
+
+[build-system]
+requires = ["uv_build>=0.13.10,<0.14"]
+build-backend = "uv_build"
