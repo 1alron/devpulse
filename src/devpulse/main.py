@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 
-app = FastAPI(title="DevPulse")
+from devpulse.core.config import settings
+
+app = FastAPI(title=settings.app_name)
 
 
 @app.get("/health")
